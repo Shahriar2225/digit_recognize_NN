@@ -13,7 +13,7 @@ b_h_o = np.zeros((10,1))
 
 learn_rate = 0.01
 nr_correct =0
-epochs = 3
+epochs = 5
 
 for epoch in range(epochs):
     for img, l in zip(images, labels):
@@ -51,10 +51,10 @@ for epoch in range(epochs):
     nr_correct = 0
 
 # Show result
-t= True
-while t:
-    test = 0
-    img = images[np.random.randint(0,59999)]
+
+while True:
+    index = int("enter a number (0-59999):")
+    img = images[index]
     
     plt.imshow(img.reshape(28,28), cmap = "Grays")
 
@@ -69,6 +69,3 @@ while t:
     
     plt.title (f"Prediction {out.argmax()}")
     plt.show()
-    test+=1
-    if(test <= 5):
-        t=False
